@@ -1,5 +1,4 @@
 (in-package :mu-cl-resources)
 
-(add-prefix "vet" "http://qmino/vocabularies/ext/trivia")
-(add-prefix "vtc" "http://qmino/vocabularies/ext/trivia/category")
-(add-prefix "vc" "http://qmino/vocabularies/core/")
+(add-prefix "vet" "http://mu.semte.ch/vocabularies/ext/trivia")
+(add-prefix "vtc" "http://mu.semte.ch/vocabularies/ext/trivia/category")
