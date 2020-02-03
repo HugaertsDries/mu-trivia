@@ -22,6 +22,22 @@ defmodule Dispatcher do
   #   Proxy.forward conn, path, "http://resource/themes/"
   # end
 
+  match "/random/*path" do
+    Proxy.forward conn, path, "http://trivia/random/"
+  end
+
+  match "/questions/*path" do
+    Proxy.forward conn, path, "http://trivia/questions/"
+  end
+
+  match "/question/*path" do
+    Proxy.forward conn, path, "http://trivia/question/"
+  end
+
+  match "/fill/*path" do
+    Proxy.forward conn, path, "http://trivia/fill/"
+  end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
