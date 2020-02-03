@@ -22,6 +22,8 @@ defmodule Dispatcher do
   #   Proxy.forward conn, path, "http://resource/themes/"
   # end
 
+  ### --- CUSTOM MICRO SERVICE --- ###
+
   match "/random/*path" do
     Proxy.forward conn, path, "http://trivia/random/"
   end
@@ -36,6 +38,12 @@ defmodule Dispatcher do
 
   match "/fill/*path" do
     Proxy.forward conn, path, "http://trivia/fill/"
+  end
+
+  ### --- CUSTOM MICRO SERVICE --- ###
+
+  match "/resource/trivias/*path" do
+    Proxy.forward conn, path, "http://resource/trivias/"
   end
 
   match _ do
