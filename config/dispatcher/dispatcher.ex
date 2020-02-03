@@ -50,6 +50,15 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/categories/"
   end
 
+  ### -- TRIVIA CRON SERVICE --- ###
+
+  match "/add-trivia/*path" do
+    Proxy.forward conn, path, "http://cron/add-trivia/"
+  end
+
+  match "/trivia-count/*path" do
+    Proxy.forward conn, path, "http://cron/trivia-count/"
+  end
 
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )

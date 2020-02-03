@@ -32,6 +32,16 @@ services:
   trivia:
     image: semtech/mu-javascript-template
     ports:
+      - 8889:80
+    environment:
+      NODE_ENV: "development"
+    links:
+      - db:database
+    volumes:
+      - /home/dries/Projects/POC/mu-trivia/mirco/trivia-service:/app/
+  cron:
+    image: semtech/mu-javascript-template
+    ports:
       - 8888:80
       - 9229:9229
     environment:
@@ -39,4 +49,4 @@ services:
     links:
       - db:database
     volumes:
-      - /home/dries/Projects/POC/mu-trivia/mirco/trivia-service:/app/
+      - /home/dries/Projects/POC/mu-trivia/mirco/trivia-cron-service:/app/
