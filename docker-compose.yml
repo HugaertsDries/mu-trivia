@@ -29,3 +29,14 @@ services:
       - db:database
     volumes:
       - ./config/resources:/config
+  trivia:
+    image: semtech/mu-javascript-template
+    ports:
+      - 8888:80
+      - 9229:9229
+    environment:
+      NODE_ENV: "development"
+    links:
+      - db:database
+    volumes:
+      - /home/dries/Projects/POC/mu-trivia/mirco/trivia-service:/app/
