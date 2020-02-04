@@ -50,14 +50,18 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/categories/"
   end
 
-  ### -- TRIVIA CRON SERVICE --- ###
+  ### -- TRIVIA FETCH SERVICE --- ###
 
-  match "/add-trivia/*path" do
-    Proxy.forward conn, path, "http://cron/add-trivia/"
+  match "/admin/add-trivia/*path" do
+    Proxy.forward conn, path, "http://trivia-fetch-service/add-trivia/"
   end
 
-  match "/trivia-count/*path" do
-    Proxy.forward conn, path, "http://cron/trivia-count/"
+  match "/admin/trivia-count/*path" do
+    Proxy.forward conn, path, "http://trivia-fetch-service/trivia-count/"
+  end
+
+  match "/admin/clear-store/*path" do
+    Proxy.forward conn, path, "http://trivia-fetch-service/clear-store/"
   end
 
   match _ do
