@@ -40,13 +40,13 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://trivia/fill/"
   end
 
-  ### --- CUSTOM MICRO SERVICE --- ###
+  ### --- RESOURCE SERVICE --- ###
 
-  match "/resource/trivias/*path" do
+  match "/trivias/*path" do
     Proxy.forward conn, path, "http://resource/trivias/"
   end
 
-  match "/resource/categories/*path" do
+  match "/categories/*path" do
     Proxy.forward conn, path, "http://resource/categories/"
   end
 

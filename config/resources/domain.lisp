@@ -15,8 +15,8 @@
 (define-resource category ()
     :class (s-prefix "vtc:Category")
     :properties `((:name :string, (s-prefix "vtc:name")))
-    :has-many `((trivia :via ,(s-prefix "vet:category")
-                       :inverse t
-                       :as "trivias"))
+;    :has-many `((trivia :via ,(s-prefix "vet:category")
+;                       :inverse t
+;                       :as "trivias"))
     :resource-base (s-url "http://mu.semte.ch/data/question/categories/")
     :on-path "categories")
